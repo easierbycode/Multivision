@@ -1,0 +1,33 @@
+{
+  "name": "MultiVision",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Jaxwood/Multivision",
+  "authors": [
+    "Jaxwood <lorenzen.jacob@gmail.com>"
+  ],
+  "description": "MEAN stack in action",
+  "keywords": [
+    "MEAN",
+    "Angular",
+    "Node",
+    "Express",
+    "Mongodb"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.10",
+    "angular-resource": "~1.2.10",
+    "angular-route": "~1.2.10",
+    "bootstrap": "~3.1.0",
+    "jquery": "~2.1.0"
+  }
+}
