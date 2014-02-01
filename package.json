@@ -1,0 +1,25 @@
+{
+  "name": "MultiVision",
+  "version": "0.0.0",
+  "description": "MEAN stack ftw!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jaxwood/Multivision"
+  },
+  "keywords": [
+    "Angular",
+    "MEAN",
+    "node",
+    "mongodb"
+  ],
+  "author": "Jacob Lorenzen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jaxwood/Multivision/issues"
+  },
+  "homepage": "https://github.com/Jaxwood/Multivision"
+}
