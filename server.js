@@ -23,7 +23,8 @@ app.configure(function(){
     app.use(express.static(__dirname + '/public'));
 });
 
-mongoose.connect('mongodb://localhost/multivision');
+var connectionStr = process.env.CUSTOMCONNSTR_MONGOLAB_URI || 'mongodb://localhost/multivision';
+mongoose.connect(connectionStr);
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error..'));
