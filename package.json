@@ -26,7 +26,9 @@
     "jade": "~1.1.5",
     "express": "~3.4.8",
     "stylus": "~0.42.2",
-    "mongoose": "~3.8.6"
+    "mongoose": "~3.8.6",
+    "passport-local": "~0.1.6",
+    "passport": "~0.1.17"
   },
   "devDependencies": {
     "nodemon": "~1.0.14"
