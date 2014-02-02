@@ -27,5 +27,8 @@
     "express": "~3.4.8",
     "stylus": "~0.42.2",
     "mongoose": "~3.8.6"
+  },
+  "devDependencies": {
+    "nodemon": "~1.0.14"
   }
 }
