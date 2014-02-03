@@ -6,7 +6,12 @@ module.exports = function(app) {
     });
 
     app.post('/login', function(req, res, next) {
-        var auth = passport.authenticate('local', function(err, user) {
+        console.log('username: ', req.body.username);
+        console.log('password: ', req.body.password);
+        var auth = passport.authenticate('local', function(err, user, info) {
+            console.log('error : ', err);
+            console.log('user : ', arguments);
+            console.log('info : ', info);
             if (err) {
                 return next(err);
             }
