@@ -1,4 +1,4 @@
-angular.module('app').controller('mvNavBarLoginCtrl', function($scope, mvAuth, mvNotifier, mvIdentity){
+angular.module('app').controller('mvNavBarLoginCtrl', function($scope, mvAuth, mvNotifier, mvIdentity, $location){
 
     $scope.identity = mvIdentity;
 
@@ -11,4 +11,13 @@ angular.module('app').controller('mvNavBarLoginCtrl', function($scope, mvAuth, m
             }
         });
    };
+
+    $scope.signOut = function() {
+        mvAuth.logoutUser().then(function(){
+            $scope.username = "";
+            $scope.password = "";
+            mvNotifier.notify('Youhave successfully signed out!');
+            $location.path('/');
+        })
+    };
 });
