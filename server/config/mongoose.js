@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    crypto = require('crypto');
 
 module.exports = function(config) {
     mongoose.connect(config.db);
@@ -12,15 +13,38 @@ module.exports = function(config) {
     var userSchema = mongoose.Schema({
         firstName: String,
         lastName: String,
-        username: String
+        username: String,
+        salt: String,
+        hashed_pwd: String
     });
+
+    userSchema.methods = {
+        authenticate: function(passwordToMatch) {
+            return hashPwd(this.salt, passwordToMatch) === this.hashed_pwd;
+        }
+    };
 
     var User = mongoose.model('User', userSchema);
 
     User.find({}).exec(function(err, collection){
        if ( collection.length === 0) {
-           User.create({firstName: 'foo', lastName: 'bar', username: 'foobar'});
-           User.create({firstName: 'john', lastName: 'doe', username: 'pass'});
+           var salt, hash;
+           salt = createSalt();
+           hash = hashPwd(salt, 'foo');
+           User.create({firstName: 'foo', lastName: 'bar', username: 'foobar', salt: salt, hashed_pwd: hash});
+
+           salt = createSalt();
+           hash = hashPwd(salt, 'john');
+           User.create({firstName: 'john', lastName: 'doe', username: 'pass', salt: salt, hashed_pwd: hash});
        }
     });
 };
+
+function createSalt() {
+    return crypto.randomBytes(128).toString('base64');
+}
+
+function hashPwd(salt, pwd) {
+    var hmac = crypto.createHmac('sha1', salt);
+    return hmac.update(pwd).digest('hex');
+}
