@@ -14,6 +14,7 @@ module.exports = function(app) {
     app.put('/api/users', users.updateUser);
 
     app.get('/api/courses', courses.getCourses);
+    app.get('/api/courses/:id', courses.getCoursesById);
 
     app.post('/login', auth.authenticate);
 
